@@ -1,0 +1,1 @@
+DAT VAO THU MUC NAY: photo-01.jpg ... photo-12.jpg (canh dai 1600px, <=350KB) + sua gallery.json

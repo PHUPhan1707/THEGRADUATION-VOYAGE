@@ -2,8 +2,6 @@ import { motion, type Variants } from 'motion/react'
 import FallbackImage from '../ui/FallbackImage'
 import { StampIn, TORN_EDGE } from '../ui/InkDecor'
 import { ASSETS } from '../../lib/assets'
-import { SITE_CONFIG } from '../../lib/config'
-
 interface ClosingSceneProps {
   graduateName: string
   portraitUrl?: string | null
@@ -83,7 +81,7 @@ export default function ClosingScene({ graduateName, onBack }: ClosingSceneProps
           ))}
 
           <motion.p variants={line} className="mt-4 text-center font-handwriting text-[1.9rem] font-bold leading-tight text-[#8c2414] sm:text-4xl">
-            {SITE_CONFIG.letter.closing}
+            Hẹn gặp bạn tại lễ tốt nghiệp nha!
           </motion.p>
           <svg viewBox="0 0 220 14" className="mx-auto mt-1 w-40 text-[#8a5a2b]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
             <motion.path

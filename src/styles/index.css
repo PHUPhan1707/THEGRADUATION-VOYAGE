@@ -348,7 +348,9 @@ html.lenis { scroll-behavior: auto; }
   background-clip: text;
   color: transparent;
   filter: drop-shadow(0 2px 2px rgba(10, 30, 55, 0.65)) drop-shadow(0 6px 18px rgba(10, 30, 55, 0.45));
-  padding: 0 0.15em;
+  /* Chữ chỉ được tô trong khung: chừa chỗ cho nét móc của g, y và dấu tiếng Việt */
+  padding: 0.08em 0.15em 0.28em;
+  margin-bottom: -0.2em;
 }
 
 /* Nền biển sâu cho các phần bên dưới */

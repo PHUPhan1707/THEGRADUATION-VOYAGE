@@ -9,12 +9,32 @@ import FallbackImage from '../ui/FallbackImage'
 import InkIcon, { type InkIconName } from '../ui/InkIcon'
 
 /** Đường hải trình trên ảnh hải đồ (toạ độ theo ảnh 1024×576) */
-const ROUTE =
-  'M 828 138 C 760 160, 690 188, 620 200 S 490 215, 450 260 S 430 360, 500 372 ' +
-  'S 560 320, 520 285 S 440 250, 390 268 S 300 285, 245 268'
-const DEST = { x: 245, y: 268 }
+const ROUTE_POINTS: [number, number][] = [
+  [828, 138], [705, 126], [622, 160], [600, 212], [556, 262], [552, 330], [528, 362],
+  [458, 352], [396, 395], [332, 458], [258, 458], [205, 418], [218, 372], [298, 338],
+  [292, 300], [245, 270],
+]
+
+/** Nối các điểm thành đường cong mềm (Catmull-Rom → Bézier) */
+function smoothPath(points: [number, number][]): string {
+  let d = `M ${points[0][0]} ${points[0][1]}`
+  for (let i = 0; i < points.length - 1; i++) {
+    const [x0, y0] = points[Math.max(0, i - 1)]
+    const [x1, y1] = points[i]
+    const [x2, y2] = points[i + 1]
+    const [x3, y3] = points[Math.min(points.length - 1, i + 2)]
+    const c1 = [x1 + (x2 - x0) / 6, y1 + (y2 - y0) / 6]
+    const c2 = [x2 - (x3 - x1) / 6, y2 - (y3 - y1) / 6]
+    d += ` C ${c1[0].toFixed(1)} ${c1[1].toFixed(1)}, ${c2[0].toFixed(1)} ${c2[1].toFixed(1)}, ${x2} ${y2}`
+  }
+  return d
+}
+
+const ROUTE = smoothPath(ROUTE_POINTS)
+const [destX, destY] = ROUTE_POINTS[ROUTE_POINTS.length - 1]
+const DEST = { x: destX, y: destY }
 /** Thời gian vẽ hết đường (giây); dấu X và ghim xuất hiện ngay sau đó */
-const ROUTE_DRAW = 3
+const ROUTE_DRAW = 3.4
 const ROUTE_START = 0.5
 
 const list: Variants = { hidden: {}, shown: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } } }

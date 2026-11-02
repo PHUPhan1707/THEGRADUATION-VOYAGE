@@ -105,6 +105,7 @@ public/images/           # Ảnh minh hoạ theo từng cảnh
 
 *Hẹn gặp bạn tại bến cảng tốt nghiệp — 28.11.2026* ⚓
 
+<sub>Nhạc nền: “Pirate Adventure” – Eldritch Grim (<a href="https://opengameart.org/content/pirate-adventure">OpenGameArt</a>, CC0).</sub><br>
 <sub>Dự án cá nhân, phi thương mại, lấy cảm hứng từ One Piece của Eiichiro Oda. Mọi bản quyền nhân vật thuộc về tác giả và Shueisha / Toei Animation.</sub>
 
 </div>

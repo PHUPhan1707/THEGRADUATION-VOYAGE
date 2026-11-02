@@ -1,4 +1,4 @@
-export type OverlayId = 'map' | 'rsvp' | 'gallery' | 'closing'
+export type OverlayId = 'map' | 'closing'
 
 export interface NavItem {
   id: OverlayId
@@ -10,12 +10,10 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { id: 'map', icon: '🗺️', label: 'Bản đồ địa điểm', shortLabel: 'Bản đồ', sublabel: 'Xem chi tiết' },
-  { id: 'rsvp', icon: '👒', label: 'Xác nhận tham dự', shortLabel: 'Tham dự', sublabel: 'Bạn sẽ đến chứ?' },
-  { id: 'gallery', icon: '📸', label: 'Gallery kỷ niệm', shortLabel: 'Kỷ niệm', sublabel: 'Những khoảnh khắc' },
   { id: 'closing', icon: '⚓', label: 'Lời kết', shortLabel: 'Lời kết', sublabel: 'Hẹn gặp bạn!' },
 ]
 
-/** Thanh 4 nút nổi ở đáy màn hình (hiện sau khi cuộn khỏi màn hình đầu). */
+/** Thanh nút nổi ở đáy màn hình (hiện sau khi cuộn khỏi màn hình đầu). */
 export default function NavigationIcons({
   onNavigate,
   visible,
@@ -32,7 +30,7 @@ export default function NavigationIcons({
       }`}
       style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
     >
-      <div className="plank flex w-full max-w-md gap-1.5 rounded-2xl border-2 border-[#d9a441]/70 p-1.5 sm:max-w-lg">
+      <div className="plank flex w-full max-w-xs gap-1.5 rounded-2xl border-2 border-[#d9a441]/70 p-1.5 sm:max-w-sm">
         {NAV_ITEMS.map((item) => (
           <button
             key={item.id}
@@ -41,7 +39,7 @@ export default function NavigationIcons({
             onClick={() => onNavigate(item.id)}
             aria-label={item.label}
             className={`group flex min-h-[54px] flex-1 [@media(max-height:500px)]:min-h-[38px] [@media(max-height:500px)]:flex-row [@media(max-height:500px)]:gap-1.5 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1.5 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 ${
-              item.id === 'rsvp'
+              item.id === 'map'
                 ? 'btn-sheen bg-gradient-to-b from-[#e8604f] to-[#b3261a] text-white shadow-md'
                 : 'bg-[#f6e6c0] text-navy hover:bg-[#fff3d2]'
             }`}

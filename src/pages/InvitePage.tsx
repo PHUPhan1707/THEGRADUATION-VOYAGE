@@ -10,8 +10,6 @@ import { ASSETS } from '../lib/assets'
 import type { OverlayId } from '../components/ui/NavigationIcons'
 
 const TreasureMap = lazy(() => import('../components/scenes/TreasureMap'))
-const RSVPSection = lazy(() => import('../components/scenes/RSVPSection'))
-const MemoriesGallery = lazy(() => import('../components/scenes/MemoriesGallery'))
 const ClosingScene = lazy(() => import('../components/scenes/ClosingScene'))
 
 function ModalFallback() {
@@ -23,7 +21,7 @@ function ModalFallback() {
 }
 
 export default function InvitePage() {
-  const { guestName, personalMessage, guest, loading } = useGuest()
+  const { guestName, personalMessage, loading } = useGuest()
   const config = useEventConfig()
   const music = useBackgroundMusic(config.musicUrl || ASSETS.music)
   const [searchParams] = useSearchParams()
@@ -81,18 +79,6 @@ export default function InvitePage() {
           <OverlayModal isOpen={activeOverlay === 'map'} onClose={close} title="BẢN ĐỒ ĐỊA ĐIỂM" icon="🗺️" maxWidth="max-w-2xl">
             <Suspense fallback={<ModalFallback />}>
               <TreasureMap />
-            </Suspense>
-          </OverlayModal>
-
-          <OverlayModal isOpen={activeOverlay === 'rsvp'} onClose={close} title="XÁC NHẬN THAM DỰ" icon="👒" maxWidth="max-w-xl">
-            <Suspense fallback={<ModalFallback />}>
-              <RSVPSection guestName={guestName} guest={guest} graduateName={config.graduateName} />
-            </Suspense>
-          </OverlayModal>
-
-          <OverlayModal isOpen={activeOverlay === 'gallery'} onClose={close} title="GALLERY KỶ NIỆM" icon="📸" maxWidth="max-w-2xl">
-            <Suspense fallback={<ModalFallback />}>
-              <MemoriesGallery />
             </Suspense>
           </OverlayModal>
 

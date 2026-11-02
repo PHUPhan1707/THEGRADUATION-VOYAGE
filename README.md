@@ -35,8 +35,7 @@ Bốn năm đại học là một chuyến hải trình: vượt qua những con
 | 🕊️ **Mở đầu điện ảnh** | Chim đưa tin News Coo sà xuống trao thư, tàu Thousand Sunny lướt sóng phía sau, tên khách hiện lên lấp lánh. |
 | 📜 **Bảng hải trình trên vách tàu** | *Lời mời lên tàu*, *Sổ hải trình (Log Pose)* và *Lệnh truy nã* gộp chung một màn hình, ghim bằng băng dính, đinh ghim, đinh sắt – có đổ bóng, đung đưa và nghiêng theo con trỏ như giấy thật. |
 | 🗺️ **Bản đồ kho báu** | Đường đi nét đứt tự vẽ tới dấu X, đồng hồ đếm ngược dạng lật số, mở chỉ đường Google Maps và thêm vào lịch (Google Calendar / file `.ics`). |
-| 👒 **Trò đùa Gomu Gomu** | Rê chuột gần nút *“không tham dự”*? Cánh tay cao su của Luffy sẽ thong thả kéo nút đi chỗ khác – tới lần thứ tư thì tung **“Gomu Gomu no… PISTOL!!”** đấm văng nút vào góc. |
-| 📸 **Kỷ niệm & Lời kết** | Album ảnh hành trình và lá thư cảm ơn *“Thank you, Nakama!”* dưới hoàng hôn. |
+| ⚓ **Lời kết** | Lá thư cảm ơn *“Thank you, Nakama!”* dưới hoàng hôn, chữ ký tự viết và dấu sáp niêm phong. |
 | 🔗 **Link riêng cho từng người** | Trang tạo link: gõ tên + lời nhắn → có ngay link `…/invite#…` để gửi qua Zalo, Messenger. Không cần máy chủ hay cơ sở dữ liệu. |
 | 📱 **Mọi thiết bị** | Bố cục riêng cho laptop, máy tính bảng, điện thoại dọc và điện thoại xoay ngang; tôn trọng chế độ *giảm chuyển động*. |
 
@@ -44,9 +43,9 @@ Bốn năm đại học là một chuyến hải trình: vượt qua những con
 
 ![Bảng hải trình trên laptop](docs/screenshots/board.jpg)
 
-| Điện thoại | Gomu Gomu no Pistol! | Tạo link mời |
-|:---:|:---:|:---:|
-| <img src="docs/screenshots/mobile.jpg" width="230"> | <img src="docs/screenshots/luffy-punch.jpg" width="330"> | <img src="docs/screenshots/link-builder.jpg" width="230"> |
+| Điện thoại | Tạo link mời |
+|:---:|:---:|
+| <img src="docs/screenshots/mobile.jpg" width="260"> | <img src="docs/screenshots/link-builder.jpg" width="260"> |
 
 </div>
 
@@ -63,9 +62,9 @@ Toàn bộ thông tin nằm trong phần sau dấu `#` của link (JSON được
 - **React 19 + TypeScript + Vite 6** – nền tảng ứng dụng.
 - **Tailwind CSS 4** – giao diện, kèm biến thể tuỳ chỉnh cho màn hình ngang / màn hình thấp.
 - **Motion** – toàn bộ hoạt cảnh: spring, MotionValue, cử chỉ vuốt, hiệu ứng theo cuộn.
-- **Lenis** – cuộn mượt · **canvas-confetti** – pháo giấy khi xác nhận tham dự.
+- **Lenis** – cuộn mượt.
 - **Vitest** – kiểm thử các hàm xử lý ngày giờ, lịch, link mời.
-- **Supabase** *(tuỳ chọn)* – lưu phản hồi tập trung và trang quản trị khách mời.
+- **Supabase** *(tuỳ chọn)* – trang quản trị danh sách khách mời.
 - **Vercel** – triển khai, tự cập nhật mỗi lần đẩy code.
 
 Hoạt cảnh chỉ dùng `transform` / `opacity` để giữ mượt ~60fps cả trên điện thoại.
@@ -85,7 +84,7 @@ Thông tin buổi lễ (tên, ngày, giờ, địa điểm, lời thư) nằm �
 
 ```
 src/
-├── components/scenes/   # Các cảnh: mở đầu, bảng hải trình, bản đồ, tham dự, kỷ niệm, lời kết
+├── components/scenes/   # Các cảnh: mở đầu, bảng hải trình, bản đồ, lời kết
 ├── components/ui/       # Thành phần dùng chung: popup, thanh điều hướng, hoạ tiết mực
 ├── hooks/               # Khách mời, đếm ngược, nhạc nền, cuộn mượt
 ├── lib/                 # Cấu hình, link mời, lịch, lưu trữ

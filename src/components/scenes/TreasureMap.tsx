@@ -10,11 +10,11 @@ import InkIcon, { type InkIconName } from '../ui/InkIcon'
 
 /** Đường hải trình trên ảnh hải đồ (toạ độ theo ảnh 1024×576) */
 const ROUTE =
-  'M 828 138 C 760 165, 680 192, 600 196 S 470 200, 400 165 S 260 128, 160 158 S 48 232, 70 300 ' +
-  'S 140 410, 205 452 S 340 478, 420 425 S 520 362, 600 360 S 682 352, 700 322'
-const DEST = { x: 700, y: 322 }
+  'M 828 138 C 760 160, 690 188, 620 200 S 490 215, 450 260 S 430 360, 500 372 ' +
+  'S 560 320, 520 285 S 440 250, 390 268 S 300 285, 245 268'
+const DEST = { x: 245, y: 268 }
 /** Thời gian vẽ hết đường (giây); dấu X và ghim xuất hiện ngay sau đó */
-const ROUTE_DRAW = 3.6
+const ROUTE_DRAW = 3
 const ROUTE_START = 0.5
 
 const list: Variants = { hidden: {}, shown: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } } }

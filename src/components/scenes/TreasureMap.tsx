@@ -9,8 +9,13 @@ import FallbackImage from '../ui/FallbackImage'
 import InkIcon, { type InkIconName } from '../ui/InkIcon'
 
 /** Đường hải trình trên ảnh hải đồ (toạ độ theo ảnh 1024×576) */
-const ROUTE = 'M 828 138 C 720 150, 600 140, 548 205 S 590 318, 700 322'
+const ROUTE =
+  'M 828 138 C 760 165, 680 192, 600 196 S 470 200, 400 165 S 260 128, 160 158 S 48 232, 70 300 ' +
+  'S 140 410, 205 452 S 340 478, 420 425 S 520 362, 600 360 S 682 352, 700 322'
 const DEST = { x: 700, y: 322 }
+/** Thời gian vẽ hết đường (giây); dấu X và ghim xuất hiện ngay sau đó */
+const ROUTE_DRAW = 3.6
+const ROUTE_START = 0.5
 
 const list: Variants = { hidden: {}, shown: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } } }
 const item: Variants = {
@@ -73,7 +78,7 @@ export default function TreasureMap() {
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
-                transition={{ duration: 1.8, delay: 0.5, ease: [0.45, 0, 0.3, 1] }}
+                transition={{ duration: ROUTE_DRAW, delay: ROUTE_START, ease: [0.4, 0, 0.35, 1] }}
               />
             </mask>
           </defs>
@@ -81,7 +86,7 @@ export default function TreasureMap() {
           <motion.g
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: 'spring', stiffness: 420, damping: 14, delay: 2.2 }}
+            transition={{ type: 'spring', stiffness: 420, damping: 14, delay: ROUTE_START + ROUTE_DRAW - 0.1 }}
             style={{ transformOrigin: `${DEST.x}px ${DEST.y}px` }}
           >
             <path
@@ -99,7 +104,7 @@ export default function TreasureMap() {
           style={{ left: `${(DEST.x / 1024) * 100}%`, top: `${((DEST.y - 22) / 576) * 100}%` }}
           initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 16, delay: 2.4 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 16, delay: ROUTE_START + ROUTE_DRAW + 0.1 }}
         >
           <span className="map-label whitespace-nowrap rounded-sm px-2 py-0.5 font-letter text-[11px] font-bold text-[#3b2412] shadow-md sm:text-xs">
             {venue}

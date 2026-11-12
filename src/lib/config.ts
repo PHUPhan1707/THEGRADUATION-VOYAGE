@@ -7,11 +7,11 @@ export const SITE_CONFIG = {
   university: 'Trường Đại học Quốc tế – ĐHQG TP.HCM',
   universityEn: 'International University – Vietnam National University HCMC',
   /** Định dạng YYYY-MM-DD */
-  graduationDate: '2026-11-28',
+  graduationDate: '2026-11-29',
   /** Định dạng HH:mm (24h). Để '' nếu chưa chốt giờ. Ví dụ: '08:00' */
-  ceremonyTime: '',
-  venue: 'Nhà điều hành Sinh viên',
-  mapsLink: 'https://maps.google.com/?q=Nhà+điều+hành+Sinh+viên+ĐHQG+TP.HCM',
+  ceremonyTime: '09:30',
+  venue: 'Hội trường Trần Chí Đáo - Nhà Điều hành',
+  mapsLink: 'https://www.google.com/maps?q=10.87759,106.80161',
   timezone: 'Asia/Ho_Chi_Minh',
   projectName: 'THE GRADUATION VOYAGE',
   tagline: 'Hành Trình Đến Tân Thế Giới',
